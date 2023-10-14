@@ -139,14 +139,13 @@ public class Dwelling {
         return bestFlat;
     }
     // Метод для получения массива квартир в доме, отсортированных по убыванию(order = 1)/увеличению(order=-1) площади.
-    public Flat[] getSortFlatsBySquare(int order) {
-        // Подсчитаем общее количество квартир
-        int totalFlats = getFlatsQuantity();
 
-        // Создаем статический массив для хранения квартир
+
+    // утильный класс переделаю потом, временное решение :)
+    public Flat[] getSortFlatsBySquare(int order) {
+        int totalFlats = getFlatsQuantity();
         Flat[] flatArray = new Flat[totalFlats];
 
-        // Заполняем массив квартирами из всех этажей
         int currentIndex = 0;
         for (DwellingFloor floor : floors) {
             Flat[] floorFlats = floor.getFlats();

@@ -1,9 +1,9 @@
 package LabOne.Buildings;
-import LabOne.Buildings.Flat;
+import LabOne.Buildings.Interfaces.Space;
+import LabOne.Buildings.impl.DwellingFloor;
+import LabOne.Buildings.impl.Flat;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class DwellingFloorTest {
     private final Flat flat1 = new Flat();
@@ -39,14 +39,14 @@ class DwellingFloorTest {
 
     @Test
     void getFlats() {
-        Flat[] result = Floor.getFlats();
+        Space[] result = Floor.getFlats();
 
         Assertions.assertEquals(DwellingFloors, result);
     }
 
     @Test
     void getFlat() {
-        Flat result = Floor.getFlat(1);
+        Space result = Floor.getFlat(1);
         Assertions.assertEquals(flat2, result);
     }
 
@@ -54,7 +54,7 @@ class DwellingFloorTest {
     void setFlat() {
         int index = 1;
         Floor.setFlat(index, flat2);
-        Flat result = Floor.getFlat(index);
+        Space result = Floor.getFlat(index);
 
         Assertions.assertEquals(flat2, result);
     }
@@ -63,7 +63,7 @@ class DwellingFloorTest {
     void addFlat() {
         int index = 2;
         Floor.addFlat(index, flat1);
-        Flat result = Floor.getFlat(index);
+        Space result = Floor.getFlat(index);
 
         Assertions.assertEquals(flat1, result);
     }
@@ -72,14 +72,14 @@ class DwellingFloorTest {
     void deleteFlat() {
         int index = 0;
         Floor.deleteFlat(0);
-        Flat result = Floor.getFlat(index);
+        Space result = Floor.getFlat(index);
 
         Assertions.assertEquals(flat2, result);
     }
 
     @Test
     void getBestSquare() {
-        Flat result = Floor.getBestSquare();
+        Space result = Floor.getBestSquare();
         Assertions.assertEquals(50, result.getSquare());
     }
 }

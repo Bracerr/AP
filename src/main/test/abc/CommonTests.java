@@ -18,6 +18,7 @@ public class CommonTests {
         private static final int DEFAULT_SQUARE = 50;
         private static final int DEFAULT_QUANTITY = 2;
 
+
         @Test
         public void test_shouldCreateFlatWithDefaultValues_whenDefaultConstructor() {
             Flat flat = new Flat();

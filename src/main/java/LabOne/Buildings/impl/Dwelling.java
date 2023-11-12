@@ -13,7 +13,6 @@ public class Dwelling implements Building {
             floors[i] = new DwellingFloor(numApartmentsPerFloor[i]);
         }
     }
-
     public Dwelling(Floor[] floors) {
         this.floors = floors;
     }

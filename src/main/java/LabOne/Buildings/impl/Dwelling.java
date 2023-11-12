@@ -70,6 +70,11 @@ public class Dwelling implements Building {
         }
     }
 
+    public void setDwellingFloors(DwellingFloor[] dwellingFloors) {
+        floors = new Floor[dwellingFloors.length];
+        System.arraycopy(dwellingFloors, 0, floors, 0, dwellingFloors.length);
+    }
+
     // Метод для получения объекта квартиры по ее номеру в доме
     public Space getFlat(int index) {
         int currentIndex = index;
@@ -143,7 +148,7 @@ public class Dwelling implements Building {
 
 
     public Space[] getSortSpacesBySquare(int order) {
-        int totalFlats = getFlatsQuantity();
+        int totalFlats = getTotalFlats();
         Space[] flatArray = new Flat[totalFlats];
 
         int currentIndex = 0;
@@ -157,12 +162,12 @@ public class Dwelling implements Building {
 
         for (int i = 0; i < n - 1; i++) {
             for (int j = 0; j < n - i - 1; j++) {
-                if (order == 1 && flatArray[j].getSquare() > flatArray[j + 1].getSquare()) {
+                if (order == 1 && flatArray[j].getSquare() < flatArray[j + 1].getSquare()) {
                     // По возрастанию
                     Space temp = flatArray[j];
                     flatArray[j] = flatArray[j + 1];
                     flatArray[j + 1] = temp;
-                } else if (order == 0 && flatArray[j].getSquare() < flatArray[j + 1].getSquare()) {
+                } else if (order == -1 && flatArray[j].getSquare() > flatArray[j + 1].getSquare()) {
                     // По убыванию
                     Space temp = flatArray[j];
                     flatArray[j] = flatArray[j + 1];
@@ -173,5 +178,4 @@ public class Dwelling implements Building {
 
         return flatArray;
     }
-
 }
